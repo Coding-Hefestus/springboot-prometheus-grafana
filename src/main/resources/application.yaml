@@ -1,0 +1,30 @@
+server:
+  port: 8089
+
+management:
+  metrics:
+    export:
+      prometheus:
+        enabled: true
+  endpoints:
+    web:
+      base-path: '/management'
+      exposure:
+        include: '*'
+
+spring:
+  output.ansi.enabled: ALWAYS
+  main:
+    allow-bean-definition-overriding: true
+    banner-mode: 'off'
+  profiles:
+    active: default
+  application:
+    name: email-client
+  jackson.default-property-inclusion: NON_NULL
+
+logging:
+  level:
+    root: INFO
+    org.springframework.orm.jpa: TRACE
+    org.springframework.transaction: TRACE
